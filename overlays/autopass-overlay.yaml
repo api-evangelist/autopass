@@ -1,0 +1,18 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Autopass Service Authorization API
+  version: 1.0.0
+extends: openapi/autopass-openapi.yml
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-network: https://apis.io/provider/autopass
+      x-apievangelist-country: TW
+      x-apievangelist-category: mobility-parking-payments
+      x-apievangelist-auth: oauth2
+  - target: $.paths./pois.get
+    update:
+      x-apievangelist-webhook-linked: [entry-notification, exit-notification]
+  - target: $.paths./orders/{orderNumber}.get
+    update:
+      x-apievangelist-webhook-linked: [transaction-billing-notification, refund-notification]

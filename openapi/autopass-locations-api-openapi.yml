@@ -1,0 +1,116 @@
+openapi: 3.1.0
+info:
+  title: Autopass Service Authorization Locations API
+  version: '1.0'
+  description: Autopass ("快速通") is a Taiwan mobility financial-services platform that lets channel brand partners embed license-plate-based parking payment into their car-owner apps. Partners register user license plates, surface partner parking locations (POIs), read parking sessions and orders, and receive entry/exit/billing/refund notifications. This description reflects the operations and response fields published in the Autopass partner documentation; it is an API Evangelist reconstruction, not a provider-issued spec.
+  contact:
+    name: Autopass
+    url: https://docs.autopass.xyz
+  termsOfService: https://autopass.xyz/terms
+servers:
+- url: https://api.autopass.xyz
+  description: Production
+security:
+- autopassOAuth: []
+tags:
+- name: Locations
+  description: Partner parking locations (POIs)
+paths:
+  /pois:
+    get:
+      tags:
+      - Locations
+      operationId: listPois
+      summary: List partner parking locations
+      description: Returns partner parking locations (points of interest) with name, address, opening-time status/period, current price and charge mode, price details, space information, telephone, supported vehicle types, operator brand and memos.
+      responses:
+        '200':
+          description: A list of parking locations
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Poi'
+components:
+  schemas:
+    Poi:
+      type: object
+      description: A partner parking location (point of interest).
+      properties:
+        name:
+          type: string
+          description: Parking location name
+        vehicleTypes:
+          type: array
+          description: Supported vehicle types (car / motorcycle)
+          items:
+            type: string
+        currentPrice:
+          type: object
+          properties:
+            price:
+              type: number
+              description: Current rate price
+            chargeMode:
+              type: string
+              description: Charge mode (by time / by entry / progressive)
+        detail:
+          type: object
+          properties:
+            address:
+              type: string
+            telephone:
+              type: string
+            spaceBrandName:
+              type: string
+              description: Operator brand name
+            openingTime:
+              type: object
+              properties:
+                status:
+                  type: string
+                  description: Open / resting / closing soon
+                period:
+                  type: string
+                  description: Business hours period
+            priceDetail:
+              type: object
+              properties:
+                current:
+                  type: array
+                  items:
+                    type: string
+                  description: Current rate description
+                complete:
+                  type: string
+                  description: Complete rate description
+            spaceInformation:
+              type: object
+              properties:
+                totalLots:
+                  type: integer
+                  description: Total parking spaces
+            memos:
+              type: array
+              items:
+                type: string
+              description: Extra parking-location notes
+  securitySchemes:
+    autopassOAuth:
+      type: oauth2
+      description: OAuth 2.0 / OpenID Connect. Discovery at https://api.autopass.xyz/.well-known/openid-configuration
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.autopass.xyz/oauth/authorize
+          tokenUrl: https://api.autopass.xyz/oauth/token
+          refreshUrl: https://api.autopass.xyz/oauth/token
+          scopes:
+            openid: OpenID Connect authentication (subject, email, phone_number claims)
+        clientCredentials:
+          tokenUrl: https://api.autopass.xyz/oauth/token
+          scopes:
+            openid: OpenID Connect authentication

@@ -1,0 +1,21 @@
+generated: '2026-07-18'
+method: derived
+status: candidate
+source: openapi/autopass-openapi.yml
+server:
+  name: autopass
+  transport: http
+  url: null
+notes: >-
+  No official hosted/remote MCP server was found for Autopass. The tools below are candidate
+  tools derived one-per-operation from the documented Autopass API; not a published server.
+tools:
+  - name: list_pois
+    description: List partner parking locations with rates, hours, and space info.
+    source_operation: openapi/autopass-openapi.yml#listPois
+  - name: get_site_session
+    description: Get an in-progress parking session (entry time) by id.
+    source_operation: openapi/autopass-openapi.yml#getSiteSession
+  - name: get_order
+    description: Get a completed parking transaction/order by order number.
+    source_operation: openapi/autopass-openapi.yml#getOrder

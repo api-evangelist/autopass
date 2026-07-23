@@ -1,0 +1,29 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.autopass.xyz/ + https://autopass.xyz/terms
+versioning:
+  scheme: unversioned-path
+  detail: >-
+    Endpoints are served unversioned under https://api.autopass.xyz (e.g. /pois). No version
+    prefix or version header is documented in the partner docs.
+deprecation:
+  policy_url: null
+  sunset_header: false
+  detail: No formal deprecation policy or RFC 8594 Sunset/Deprecation header support is documented.
+sla:
+  url: null
+  uptime_target: null
+status_page: null
+terms:
+  terms_of_service: https://autopass.xyz/terms
+  privacy_policy: https://autopass.xyz/privacy
+  third_party: https://autopass.xyz/terms/pay-taipei-intelligent-parking
+acceptance:
+  detail: >-
+    Autopass runs a formal partner acceptance ("驗收") process against the [必須]/required
+    portions of the product flow before a channel brand partner goes live.
+deprecated_operations: []
+notes: >-
+  No public status page or SLA was found. Legal terms and privacy policy are published under
+  autopass.xyz. Partner integrations are gated by an acceptance review rather than a versioned
+  release train.

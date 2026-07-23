@@ -1,0 +1,75 @@
+openapi: 3.1.0
+info:
+  title: Autopass Service Authorization Locations Orders API
+  version: '1.0'
+  description: Autopass ("快速通") is a Taiwan mobility financial-services platform that lets channel brand partners embed license-plate-based parking payment into their car-owner apps. Partners register user license plates, surface partner parking locations (POIs), read parking sessions and orders, and receive entry/exit/billing/refund notifications. This description reflects the operations and response fields published in the Autopass partner documentation; it is an API Evangelist reconstruction, not a provider-issued spec.
+  contact:
+    name: Autopass
+    url: https://docs.autopass.xyz
+  termsOfService: https://autopass.xyz/terms
+servers:
+- url: https://api.autopass.xyz
+  description: Production
+security:
+- autopassOAuth: []
+tags:
+- name: Orders
+  description: Completed parking transactions and invoices
+paths:
+  /orders/{orderNumber}:
+    get:
+      tags:
+      - Orders
+      operationId: getOrder
+      summary: Get an order
+      description: Returns a completed parking transaction, including the parking-site name and the payment user identity (license plate), used for transaction adjustment / re-invoicing.
+      parameters:
+      - name: orderNumber
+        in: path
+        required: true
+        description: Order number
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Order detail
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+components:
+  schemas:
+    Order:
+      type: object
+      description: A completed parking transaction.
+      properties:
+        site:
+          type: object
+          properties:
+            name:
+              type: string
+              description: Parking-site name
+        paymentUserIdentity:
+          $ref: '#/components/schemas/PaymentUserIdentity'
+    PaymentUserIdentity:
+      type: object
+      description: The license plate a payment is attributed to.
+      properties:
+        id:
+          type: string
+          description: License plate number
+  securitySchemes:
+    autopassOAuth:
+      type: oauth2
+      description: OAuth 2.0 / OpenID Connect. Discovery at https://api.autopass.xyz/.well-known/openid-configuration
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.autopass.xyz/oauth/authorize
+          tokenUrl: https://api.autopass.xyz/oauth/token
+          refreshUrl: https://api.autopass.xyz/oauth/token
+          scopes:
+            openid: OpenID Connect authentication (subject, email, phone_number claims)
+        clientCredentials:
+          tokenUrl: https://api.autopass.xyz/oauth/token
+          scopes:
+            openid: OpenID Connect authentication

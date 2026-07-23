@@ -1,0 +1,43 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/autopass-openapi.yml + https://docs.autopass.xyz/
+entities:
+  - name: Poi
+    description: A partner parking location (point of interest).
+    key_fields: [name, vehicleTypes, currentPrice.chargeMode, detail.address, detail.spaceBrandName]
+  - name: SiteSession
+    description: An in-progress parking session for a recognized license plate.
+    key_fields: [startDate]
+  - name: Order
+    description: A completed parking transaction with an issued invoice.
+    key_fields: [orderNumber, site.name]
+  - name: PaymentUserIdentity
+    description: The license plate a payment/session/order is attributed to.
+    key_fields: [id]
+  - name: Vehicle
+    description: Vehicle registered by a user (plate number + vehicle type; immutable once set).
+    key_fields: [plate, vehicleType]
+relationships:
+  - from: Order
+    to: PaymentUserIdentity
+    type: belongs_to
+    via: paymentUserIdentity
+  - from: Order
+    to: Poi
+    type: belongs_to
+    via: site
+  - from: SiteSession
+    to: PaymentUserIdentity
+    type: belongs_to
+    via: license-plate (recognized at entry)
+  - from: SiteSession
+    to: Poi
+    type: belongs_to
+    via: parking-location
+  - from: PaymentUserIdentity
+    to: Vehicle
+    type: has_one
+    via: plate registration
+notes: >-
+  License plate (PaymentUserIdentity.id) is the join key across sessions and orders. A
+  session becomes an order on exit (車辨自動進出場 flow); the partner then bills the user.

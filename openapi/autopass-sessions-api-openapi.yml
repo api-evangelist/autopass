@@ -1,0 +1,64 @@
+openapi: 3.1.0
+info:
+  title: Autopass Service Authorization Locations Sessions API
+  version: '1.0'
+  description: Autopass ("快速通") is a Taiwan mobility financial-services platform that lets channel brand partners embed license-plate-based parking payment into their car-owner apps. Partners register user license plates, surface partner parking locations (POIs), read parking sessions and orders, and receive entry/exit/billing/refund notifications. This description reflects the operations and response fields published in the Autopass partner documentation; it is an API Evangelist reconstruction, not a provider-issued spec.
+  contact:
+    name: Autopass
+    url: https://docs.autopass.xyz
+  termsOfService: https://autopass.xyz/terms
+servers:
+- url: https://api.autopass.xyz
+  description: Production
+security:
+- autopassOAuth: []
+tags:
+- name: Sessions
+  description: In-progress parking sessions
+paths:
+  /site-sessions/{id}:
+    get:
+      tags:
+      - Sessions
+      operationId: getSiteSession
+      summary: Get a parking session
+      description: Returns an in-progress parking session for a recognized license plate, including the entry time (startDate), used to show parking duration and estimated fee before exit.
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: Parking session identifier
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Parking session
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SiteSession'
+components:
+  schemas:
+    SiteSession:
+      type: object
+      description: An in-progress parking session.
+      properties:
+        startDate:
+          type: string
+          format: date-time
+          description: Entry time
+  securitySchemes:
+    autopassOAuth:
+      type: oauth2
+      description: OAuth 2.0 / OpenID Connect. Discovery at https://api.autopass.xyz/.well-known/openid-configuration
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.autopass.xyz/oauth/authorize
+          tokenUrl: https://api.autopass.xyz/oauth/token
+          refreshUrl: https://api.autopass.xyz/oauth/token
+          scopes:
+            openid: OpenID Connect authentication (subject, email, phone_number claims)
+        clientCredentials:
+          tokenUrl: https://api.autopass.xyz/oauth/token
+          scopes:
+            openid: OpenID Connect authentication

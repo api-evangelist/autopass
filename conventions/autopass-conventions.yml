@@ -1,0 +1,51 @@
+generated: '2026-07-18'
+method: derived
+source: >-
+  https://docs.autopass.xyz/ (partner docs) + openapi/autopass-openapi.yml
+authentication:
+  style: oauth2-bearer
+  detail: >-
+    OAuth 2.0 bearer access tokens (Authorization Code / Client Credentials), obtained from
+    https://api.autopass.xyz/oauth/token. See authentication/autopass-authentication.yml.
+response_envelope:
+  list_wrapper: data
+  detail: >-
+    Collection endpoints (GET /pois) return results under a top-level `data` array; each
+    element carries nested `detail`, `currentPrice`, `openingTime`, `priceDetail`,
+    `spaceInformation` objects.
+identity_model:
+  primary_key: license-plate
+  detail: >-
+    Users are identified to Autopass by license plate (paymentUserIdentity.id). Partners
+    register a plate + vehicle type before use; plate/vehicle are immutable (deregister and
+    re-register to change). Plates cannot be deregistered while a parking session is active.
+webhooks:
+  supported: true
+  events: [entry, exit, transaction-billing, refund]
+  detail: >-
+    Autopass pushes entry/exit, billing (請款) and refund notifications to channel brand
+    partners. See asyncapi/autopass-webhooks.yml.
+invoicing:
+  supported: true
+  methods: [mobile-barcode-carrier, donation, citizen-digital-certificate, business-tax-id, email-carrier]
+  detail: >-
+    Partners must collect an e-invoice issuing method at plate registration; re-invoicing must
+    be completed within 30 days of the transaction.
+idempotency:
+  supported: false
+  detail: >-
+    Autopass does not document an idempotency-key mechanism. Read operations (/pois,
+    /site-sessions, /orders) are naturally idempotent GETs.
+pagination:
+  supported: unknown
+  detail: >-
+    Pagination parameters are not documented for GET /pois in the published partner docs.
+branding_requirement:
+  detail: >-
+    Partners must display the "powered by Autopass" mark on authorization, map, payment,
+    plate-setting and transaction-history screens (Autopass 識別規範).
+cross_links:
+  authentication: authentication/autopass-authentication.yml
+  data_model: data-model/autopass-data-model.yml
+  webhooks: asyncapi/autopass-webhooks.yml
+  lifecycle: lifecycle/autopass-lifecycle.yml

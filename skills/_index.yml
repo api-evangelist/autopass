@@ -1,0 +1,12 @@
+generated: '2026-07-18'
+method: generated
+source: openapi/autopass-openapi.yml + https://docs.autopass.xyz/
+skills:
+  - file: autopass-show-parking-locations.md
+    name: Show Autopass partner parking locations
+    api: openapi/autopass-openapi.yml
+    operations: [listPois]
+  - file: autopass-track-session-and-order.md
+    name: Track an Autopass parking session and settle the order
+    api: openapi/autopass-openapi.yml
+    operations: [getSiteSession, getOrder]

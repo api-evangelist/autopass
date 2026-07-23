@@ -1,0 +1,11 @@
+# Autopass 服務授權方案｜產品規範
+
+## Autopass 服務授權方案｜產品規範
+
+- [Autopass 服務授權方案](https://docs.autopass.xyz/autopass-fu-wu-shou-quan-fang-an.md)
+- [Autopass 服務流程與驗收規範](https://docs.autopass.xyz/autopass-fu-wu-liu-cheng-yu-yan-shou-gui-fan.md)
+- [Autopass 識別規範](https://docs.autopass.xyz/autopass-shi-bie-gui-fan.md)
+- [付款車牌設定](https://docs.autopass.xyz/ting-ju-fu-kuan/fu-kuan-ju-pai-she-ding.md)
+- [付款合作據點查詢](https://docs.autopass.xyz/ting-ju-fu-kuan/fu-kuan-he-zuo-ju-dian-cha-xun.md)
+- [交易功能流程總覽](https://docs.autopass.xyz/ting-ju-fu-kuan/jiao-yi-gong-neng-liu-cheng-zong-lan.md)
+- [車辨自動進出場](https://docs.autopass.xyz/ting-ju-fu-kuan/jiao-yi-gong-neng-liu-cheng-zong-lan/ju-bian-zi-dong-jin-chu-chang.md)

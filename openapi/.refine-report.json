@@ -1,0 +1,18 @@
+{
+  "provider": "autopass",
+  "sources": [
+    "autopass-locations-api-openapi.yml",
+    "autopass-orders-api-openapi.yml",
+    "autopass-sessions-api-openapi.yml"
+  ],
+  "outputs": [
+    "autopass-locations-api-openapi.yml",
+    "autopass-orders-api-openapi.yml",
+    "autopass-sessions-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

@@ -1,0 +1,31 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.autopass.xyz/ting-ju-fu-kuan/jiao-yi-gong-neng-liu-cheng-zong-lan/ju-bian-zi-dong-jin-chu-chang.md
+type: Webhooks
+spec_type: none
+summary: >-
+  Autopass pushes notifications to channel brand partners over the license-plate-recognition
+  (車辨自動進出場) parking flow. No AsyncAPI document is published; this captures the documented
+  webhook/notification catalog.
+events:
+  - name: entry-notification
+    zh: 進場通知
+    description: Sent when a user's recognized license plate enters a partner parking lot.
+    direction: autopass-to-partner
+  - name: exit-notification
+    zh: 離場通知
+    description: Sent when a user's license plate leaves the parking lot.
+    direction: autopass-to-partner
+  - name: transaction-billing-notification
+    zh: 交易請款通知
+    description: >-
+      Sent on exit so the partner can bill the user; partner may then pull order info
+      (GET /orders/{orderNumber}) to display to the user.
+    direction: autopass-to-partner
+  - name: refund-notification
+    zh: 退款通知
+    description: Sent when a refund is processed for a disputed transaction.
+    direction: autopass-to-partner
+notes: >-
+  Events are delivered to the partner; the partner is expected to notify the end user and may
+  reconcile against GET /orders/{orderNumber} and GET /site-sessions/{id}.

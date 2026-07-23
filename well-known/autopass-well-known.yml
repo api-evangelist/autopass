@@ -1,0 +1,25 @@
+generated: '2026-07-18'
+method: searched
+source: https://api.autopass.xyz/.well-known/
+host: https://api.autopass.xyz
+documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: autopass-openid-configuration.json
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: autopass-oauth-authorization-server.json
+  - path: /oauth/discovery/keys
+    status: 200
+    file: autopass-jwks.json
+    note: JWKS referenced by jwks_uri in the discovery documents
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+notes: >-
+  api.autopass.xyz publishes RFC 8414 OAuth Authorization Server metadata and OpenID
+  Connect discovery. issuer=https://www.autopass.xyz. No security.txt, api-catalog, or
+  ai-plugin.json present.

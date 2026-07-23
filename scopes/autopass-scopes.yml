@@ -1,0 +1,23 @@
+generated: '2026-07-18'
+method: searched
+source: https://api.autopass.xyz/.well-known/openid-configuration
+schemes:
+  - name: autopassOAuth
+    source: https://api.autopass.xyz/.well-known/openid-configuration
+    flows:
+      - flow: authorizationCode
+        authorizationUrl: https://api.autopass.xyz/oauth/authorize
+        tokenUrl: https://api.autopass.xyz/oauth/token
+      - flow: clientCredentials
+        tokenUrl: https://api.autopass.xyz/oauth/token
+scopes:
+  - scope: openid
+    description: >-
+      OpenID Connect authentication. Grants identity claims (sub, email, email_verified,
+      phone_number, phone_number_verified) via the userinfo endpoint and ID token.
+    flows: [authorizationCode]
+    sources: [https://api.autopass.xyz/.well-known/openid-configuration]
+notes: >-
+  scopes_supported in the published OIDC discovery lists only "openid". Autopass does not
+  document additional resource scopes; partner authorization to the /pois, /site-sessions
+  and /orders resources is governed at the client/partner level rather than by OAuth scopes.
