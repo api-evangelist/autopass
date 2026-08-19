@@ -1,0 +1,153 @@
+{
+  "item": [
+    {
+      "id": "5b87ef96-8eb5-4dd0-b3e0-d955dec18d00",
+      "name": "Sessions",
+      "description": {
+        "content": "In-progress parking sessions",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "907bbafd-4fb9-45a9-a579-82cd80c1c433",
+          "name": "Get a parking session",
+          "request": {
+            "name": "Get a parking session",
+            "description": {
+              "content": "Returns an in-progress parking session for a recognized license plate, including the entry time (startDate), used to show parking duration and estimated fee before exit.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "site-sessions",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Parking session identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "617fc3e2-987d-4fb7-a735-786b614d9ea6",
+              "name": "Parking session",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "site-sessions",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Parking session identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"startDate\": \"1950-12-20T01:57:49.515Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.autopass.xyz",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "openid"
+      },
+      {
+        "key": "redirect_uri",
+        "value": "https://api.autopass.xyz/oauth/token"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.autopass.xyz/oauth/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://api.autopass.xyz/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "8b2d60b1-97cc-4cf8-a78a-9e016c58296e",
+    "name": "Autopass Service Authorization Locations Sessions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Autopass (\"快速通\") is a Taiwan mobility financial-services platform that lets channel brand partners embed license-plate-based parking payment into their car-owner apps. Partners register user license plates, surface partner parking locations (POIs), read parking sessions and orders, and receive entry/exit/billing/refund notifications. This description reflects the operations and response fields published in the Autopass partner documentation; it is an API Evangelist reconstruction, not a provider-issued spec.\n\nContact Support:\n Name: Autopass",
+      "type": "text/plain"
+    }
+  }
+}

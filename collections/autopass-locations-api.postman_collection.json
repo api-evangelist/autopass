@@ -1,0 +1,135 @@
+{
+  "item": [
+    {
+      "id": "c45459c4-7f3b-458e-8d84-1aec060044ca",
+      "name": "Locations",
+      "description": {
+        "content": "Partner parking locations (POIs)",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a0c9f717-a090-4f29-b5f1-1bc809295141",
+          "name": "List partner parking locations",
+          "request": {
+            "name": "List partner parking locations",
+            "description": {
+              "content": "Returns partner parking locations (points of interest) with name, address, opening-time status/period, current price and charge mode, price details, space information, telephone, supported vehicle types, operator brand and memos.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "pois"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6b3dc5dd-a639-4f08-a11e-c6c8055943d9",
+              "name": "A list of parking locations",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pois"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"name\": \"string\",\n      \"vehicleTypes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"currentPrice\": {\n        \"price\": 7766.25458807866,\n        \"chargeMode\": \"string\"\n      },\n      \"detail\": {\n        \"address\": \"string\",\n        \"telephone\": \"string\",\n        \"spaceBrandName\": \"string\",\n        \"openingTime\": {\n          \"status\": \"string\",\n          \"period\": \"string\"\n        },\n        \"priceDetail\": {\n          \"current\": [\n            \"string\",\n            \"string\"\n          ],\n          \"complete\": \"string\"\n        },\n        \"spaceInformation\": {\n          \"totalLots\": 1366\n        },\n        \"memos\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"vehicleTypes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"currentPrice\": {\n        \"price\": 2439.829776816218,\n        \"chargeMode\": \"string\"\n      },\n      \"detail\": {\n        \"address\": \"string\",\n        \"telephone\": \"string\",\n        \"spaceBrandName\": \"string\",\n        \"openingTime\": {\n          \"status\": \"string\",\n          \"period\": \"string\"\n        },\n        \"priceDetail\": {\n          \"current\": [\n            \"string\",\n            \"string\"\n          ],\n          \"complete\": \"string\"\n        },\n        \"spaceInformation\": {\n          \"totalLots\": 9090\n        },\n        \"memos\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.autopass.xyz",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "openid"
+      },
+      {
+        "key": "redirect_uri",
+        "value": "https://api.autopass.xyz/oauth/token"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.autopass.xyz/oauth/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://api.autopass.xyz/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "5fd4aaca-66e4-4ecb-9718-0eb902b995e7",
+    "name": "Autopass Service Authorization Locations API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Autopass (\"快速通\") is a Taiwan mobility financial-services platform that lets channel brand partners embed license-plate-based parking payment into their car-owner apps. Partners register user license plates, surface partner parking locations (POIs), read parking sessions and orders, and receive entry/exit/billing/refund notifications. This description reflects the operations and response fields published in the Autopass partner documentation; it is an API Evangelist reconstruction, not a provider-issued spec.\n\nContact Support:\n Name: Autopass",
+      "type": "text/plain"
+    }
+  }
+}

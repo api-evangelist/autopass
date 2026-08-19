@@ -1,0 +1,153 @@
+{
+  "item": [
+    {
+      "id": "03fd9ac2-d350-47f3-b9b2-d66b6e6099b2",
+      "name": "Orders",
+      "description": {
+        "content": "Completed parking transactions and invoices",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "97fc6bc4-957c-4dfa-a485-3c295c1fca59",
+          "name": "Get an order",
+          "request": {
+            "name": "Get an order",
+            "description": {
+              "content": "Returns a completed parking transaction, including the parking-site name and the payment user identity (license plate), used for transaction adjustment / re-invoicing.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orders",
+                ":orderNumber"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "orderNumber",
+                  "description": "(Required) Order number"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a4f9491f-5c64-4629-acbc-442caa4ed48e",
+              "name": "Order detail",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    ":orderNumber"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "orderNumber",
+                      "description": "(Required) Order number"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"site\": {\n    \"name\": \"string\"\n  },\n  \"paymentUserIdentity\": {\n    \"id\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.autopass.xyz",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "openid"
+      },
+      {
+        "key": "redirect_uri",
+        "value": "https://api.autopass.xyz/oauth/token"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.autopass.xyz/oauth/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://api.autopass.xyz/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c2ad8693-aaaa-4cb2-b757-2675c56cd6f5",
+    "name": "Autopass Service Authorization Locations Orders API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Autopass (\"快速通\") is a Taiwan mobility financial-services platform that lets channel brand partners embed license-plate-based parking payment into their car-owner apps. Partners register user license plates, surface partner parking locations (POIs), read parking sessions and orders, and receive entry/exit/billing/refund notifications. This description reflects the operations and response fields published in the Autopass partner documentation; it is an API Evangelist reconstruction, not a provider-issued spec.\n\nContact Support:\n Name: Autopass",
+      "type": "text/plain"
+    }
+  }
+}

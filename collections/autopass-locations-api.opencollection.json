@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Autopass Service Authorization Locations API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://api.autopass.xyz/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Locations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List partner parking locations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.autopass.xyz/pois"
+          },
+          "docs": "Returns partner parking locations (points of interest) with name, address, opening-time status/period, current price and charge mode, price details, space information, telephone, supported vehicle types, operator brand and memos."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

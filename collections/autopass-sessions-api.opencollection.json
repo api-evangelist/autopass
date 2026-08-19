@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Autopass Service Authorization Locations Sessions API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://api.autopass.xyz/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Sessions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a parking session",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.autopass.xyz/site-sessions/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Parking session identifier"
+              }
+            ]
+          },
+          "docs": "Returns an in-progress parking session for a recognized license plate, including the entry time (startDate), used to show parking duration and estimated fee before exit."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
