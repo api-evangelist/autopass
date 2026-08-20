@@ -38,6 +38,15 @@ tags:
 - Parking
 - Payments
 - Automotive
+- Financial-Services
+- Authentication
+- Taiwan
+tags_raw:
+- Company
+- Mobility
+- Parking
+- Payments
+- Automotive
 - Financial Services
 - OAuth
 - Taiwan
@@ -68,6 +77,8 @@ apis:
   humanURL: https://docs.autopass.xyz
   baseURL: https://api.autopass.xyz
   tags:
+  - Order
+  tags_raw:
   - Orders
   properties:
   - type: OpenAPI
