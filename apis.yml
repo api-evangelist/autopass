@@ -69,6 +69,8 @@ apis:
   humanURL: https://docs.autopass.xyz
   baseURL: https://api.autopass.xyz
   tags:
+  - Location
+  tags_raw:
   - Locations
   properties:
   - type: OpenAPI
