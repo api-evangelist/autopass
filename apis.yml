@@ -53,7 +53,7 @@ tags:
 - Parking
 - Payments
 - Automotive
-- Financial-Services
+- Financial Services
 - Authentication
 - Taiwan
 tags_raw:
@@ -65,6 +65,7 @@ tags_raw:
 - Financial Services
 - OAuth
 - Taiwan
+- Financial-Services
 apis:
 - aid: autopass:autopass-locations-api
   name: Autopass Locations API
