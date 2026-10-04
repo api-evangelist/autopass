@@ -39,13 +39,6 @@ paths:
                 $ref: '#/components/schemas/Order'
 components:
   schemas:
-    PaymentUserIdentity:
-      type: object
-      description: The license plate a payment is attributed to.
-      properties:
-        id:
-          type: string
-          description: License plate number
     Order:
       type: object
       description: A completed parking transaction.
@@ -58,6 +51,13 @@ components:
               description: Parking-site name
         paymentUserIdentity:
           $ref: '#/components/schemas/PaymentUserIdentity'
+    PaymentUserIdentity:
+      type: object
+      description: The license plate a payment is attributed to.
+      properties:
+        id:
+          type: string
+          description: License plate number
   securitySchemes:
     autopassOAuth:
       type: oauth2
