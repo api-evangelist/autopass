@@ -64,6 +64,122 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Autopass is a company surfaced as a portfolio company of 500-global and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+Autopass ("快速通") is a Taiwan-based mobility financial-services platform that connects service locations, car-owner apps, payments and benefits so that every driver enjoys a fast, convenient driving experience. Through its "powered by Autopass" service-authorization program, channel brand partners embed license-plate-based parking payment into their own car-owner apps: they register user license plates, surface partner parking locations (POIs) with live rates and hours, read in-progress parking sessions and completed orders, and receive entry/exit/billing/refund notifications over an OAuth 2.0 / OpenID Connect secured API. Autopass aims to become Asia's largest provider of mobility financial services. Backed by 500 Global.
 
-Backed by: 500-global — https://en.autopass.xyz
+**Areas:** Company · Mobility · Parking · Payments · Automotive · Financial Services · Authentication · Taiwan
+
+## Autopass on APIs.io
+
+Everything profiled for Autopass is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/autopass/](https://apis.io/providers/autopass/)** — or go straight to one of the APIs or properties below.
+
+### APIs (3)
+
+- [Autopass Locations API](https://apis.io/apis/autopass/autopass-locations-api/) — Partner parking locations (POIs)
+- [Autopass Orders API](https://apis.io/apis/autopass/autopass-orders-api/) — Completed parking transactions and invoices
+- [Autopass Sessions API](https://apis.io/apis/autopass/autopass-sessions-api/) — In-progress parking sessions
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### AsyncAPI (1)
+
+Event-driven and webhook contracts.
+
+- [Autopass Webhooks](https://apis.io/asyncapis/autopass/autopass-webhooks/)
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [autopass](https://apis.io/servers/autopass/autopass/)
+
+#### Collections (3)
+
+Postman and Open Collection request collections.
+
+- [Autopass Service Authorization Locations API](https://apis.io/collections/autopass/open-autopass-locations-api/)
+- [Autopass Service Authorization Locations Orders API](https://apis.io/collections/autopass/open-autopass-orders-api/)
+- [Autopass Service Authorization Locations Sessions API](https://apis.io/collections/autopass/open-autopass-sessions-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Autopass Overlay](https://apis.io/overlays/autopass/autopass-overlay/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Autopass Authentication](https://apis.io/security/autopass/autopass-authentication/)
+- [Autopass Domain Security](https://apis.io/security/autopass/autopass-domain-security/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Autopass Scopes](https://apis.io/scopes/autopass/autopass-scopes/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://en.autopass.xyz)
+- [Documentation](https://docs.autopass.xyz)
+- [API reference](https://docs.autopass.xyz/llms.txt)
+- [Terms of service](https://autopass.xyz/terms)
+- [Privacy policy](https://autopass.xyz/privacy)
+
+## API Evangelist rating
+
+**Kin Score 35.7** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 56.4 |
+| Contract governance | 0.0 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 39.9 |
+| Access clarity | 21.1 |
+
+**Agent readiness 33.5** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | served (partial credit) |
+| Idempotency | na |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | yes |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 26.8** — Payments
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/autopass/](https://apis.io/providers/autopass/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Autopass: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/autopass/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
